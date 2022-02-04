@@ -12,12 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0  
       - name: Download hadolint config file
-        run: curl https://raw.githubusercontent.com/streamr-dev/.github/master/.hadolint.yaml?token=GHSAT0AAAAAABPMM7HB4W2OQAHLEXAJA2O2YQGDXEA
+        run: curl https://raw.githubusercontent.com/streamr-dev/.github/master/.hadolint.yaml?token=GHSAT0AAAAAABPMM7HB4W2OQAHLEXAJA2O2YQGDXEA -o ./.hadolint.yaml
       - name: check directory
         run: ls -al  
       - uses: hadolint/hadolint-action@v1.6.0
         with:
           dockerfile: ./Dockerfile
           config: ./.hadolint.yaml
+
 
 
