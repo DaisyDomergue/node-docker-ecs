@@ -1,8 +1,6 @@
 name: Lint
 
 on: [push]
-concurrency:
-  cancel-in-progress: true
 defaults:
   run:
     shell: bash
@@ -19,3 +17,4 @@ jobs:
         with:
           dockerfile: ./Dockerfile
           config: ./.hadolint.yaml
+
