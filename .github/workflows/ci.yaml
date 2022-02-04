@@ -1,0 +1,21 @@
+name: Lint
+
+on: [push]
+concurrency:
+  cancel-in-progress: true
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: Lint and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - name: Download hadolint config file
+        run: curl https://raw.githubusercontent.com/streamr-dev/.github/master/.hadolint.yaml?token=GHSAT0AAAAAABPMM7HB4W2OQAHLEXAJA2O2YQGDXEA
+      - uses: hadolint/hadolint-action@v1.6.0
+        with:
+          dockerfile: ./Dockerfile
+          config: ./.hadolint.yaml
