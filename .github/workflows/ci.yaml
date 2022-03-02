@@ -10,7 +10,7 @@ jobs:
     name: Lint and test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0  
+      - uses: actions/checkout@v3  
       - name: Download hadolint config file
         run: curl https://raw.githubusercontent.com/streamr-dev/.github/master/.hadolint.yaml?token=GHSAT0AAAAAABPMM7HB4W2OQAHLEXAJA2O2YQGDXEA -o ./.hadolint.yaml
       - name: check directory
